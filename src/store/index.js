@@ -17,10 +17,23 @@ export default new Vuex.Store({
       state.bookList.splice(state.bookList.length, 1, payload);
     },
     setToUser(state, payload) {
-      let selectedBook = state.bookList[payload.selectedBookIndex];
+      let selectedBook = {
+        ...state.bookList[payload.bookIndex],
+      };
       selectedBook.isAtUser = true;
-      selectedBook.userInfo = payload.userInfo;
-      state.bookList.splice(payload.selectedBookIndex, 1, selectedBook);
+      selectedBook.user = {
+        ...payload.user,
+      };
+      state.bookList.splice(payload.bookIndex, 1, selectedBook);
+    },
+    getFromUser(state, payload) {
+      let selectedBook = {
+        author: state.bookList[payload].author,
+        bookImgUrl: state.bookList[payload].bookImgUrl,
+        bookName: state.bookList[payload].bookName,
+        isAtUser: false,
+      };
+      state.bookList.splice(payload, 1, selectedBook);
     },
   },
   actions: {
@@ -33,6 +46,9 @@ export default new Vuex.Store({
     },
     setBookToUserAction({ commit }, payload) {
       commit("setToUser", payload);
+    },
+    getBookFromUserAction({ commit }, payload) {
+      commit("getFromUser", payload);
     },
   },
   getters: {

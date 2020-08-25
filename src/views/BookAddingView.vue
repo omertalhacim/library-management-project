@@ -8,7 +8,7 @@
           style="background-color:#a7eb5b"
         >
           <div class="d-flex justify-content-between">
-            <h4 class="">Add New Book</h4>
+            <h4 class>Add New Book</h4>
             <router-link to="/">return to home</router-link>
           </div>
           <div class="form-group">
@@ -88,7 +88,7 @@ export default {
       this.formModel.bookName = "";
       this.formModel.author = "";
       this.formModel.bookImgUrl = "";
-    }
+    },
   },
 };
 </script>

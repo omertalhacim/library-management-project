@@ -106,7 +106,10 @@ export default {
         (item) => item == this.selectedBook
       );
       let payload = {
-        ...this.formModel,
+        bookIndex: this.formModel.selectedBookIndex,
+        user: {
+          ...this.formModel.userInfo,
+        },
       };
       this.setBookToUserAction(payload);
       this.clearForm();

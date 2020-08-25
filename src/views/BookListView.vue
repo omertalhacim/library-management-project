@@ -5,9 +5,11 @@
       <router-link to="/" class="mr-3">return to home</router-link>
     </div>
     <template>
-      <div class="row card mt-1 ml-3 mr-3 mb-2" v-for="(item, index) in getBookList" :key="index">
-        {{item.author}}
-      </div>
+      <div
+        class="row card mt-1 ml-3 mr-3 mb-2"
+        v-for="(item, index) in getBookList"
+        :key="index"
+      >{{item.author}}</div>
     </template>
   </div>
 </template>
@@ -16,10 +18,10 @@
 export default {
   name: "BookListView",
   computed: {
-    getBookList(){
-      return this.$store.getters.getBookList
-    }
-  }
+    getBookList() {
+      return this.$store.getters.getBookList;
+    },
+  },
 };
 </script>
 
