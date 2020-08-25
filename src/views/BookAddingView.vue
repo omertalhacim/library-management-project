@@ -8,7 +8,7 @@
           style="background-color:#a7eb5b"
         >
           <div class="d-flex justify-content-between">
-            <h4 class>Add New Book</h4>
+            <h4 class="text-dark">Add New Book</h4>
             <router-link to="/">return to home</router-link>
           </div>
           <div class="form-group">
@@ -82,7 +82,6 @@ export default {
     submitOperation() {
       this.$store.dispatch("addBookAction", this.formModel);
       this.clearForm();
-      console.log(this.$store.getters.getBookList);
     },
     clearForm() {
       this.formModel.bookName = "";

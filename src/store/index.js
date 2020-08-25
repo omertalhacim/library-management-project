@@ -35,6 +35,11 @@ export default new Vuex.Store({
       };
       state.bookList.splice(payload, 1, selectedBook);
     },
+    deleteBookFromStore(state, payload) {
+      let indexOfBook = state.bookList.findIndex((item) => item == payload);
+      console.log(indexOfBook);
+      state.bookList.splice(indexOfBook, 1);
+    },
   },
   actions: {
     addBookAction({ commit }, payload) {
@@ -49,6 +54,9 @@ export default new Vuex.Store({
     },
     getBookFromUserAction({ commit }, payload) {
       commit("getFromUser", payload);
+    },
+    deleteBookFromStoreAction({ commit }, payload) {
+      commit("deleteBookFromStore", payload);
     },
   },
   getters: {

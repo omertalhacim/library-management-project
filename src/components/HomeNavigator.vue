@@ -1,13 +1,13 @@
 <template>
   <div class="card">
-    <h3 class="mt-1">{{title}}</h3>
+    <h3 class="mt-2 text-center">{{title}}</h3>
     <div class="row">
       <button class="btn btn-success col-12 mt-2" @click="buttonOneOp">{{buttonOneText}}</button>
       <br />
       <button class="btn btn-primary col-12 mt-3" @click="buttonTwoOp">{{buttonTwoText}}</button>
-      <br>
+      <br />
     </div>
-    <br>
+    <br />
   </div>
 </template>
 

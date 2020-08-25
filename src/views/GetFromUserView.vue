@@ -80,7 +80,6 @@ export default {
   computed: {
     ...mapGetters(["getBookList"]),
     getBooksAtUser() {
-      console.log(this.getBookList);
       return this.getBookList.filter((item) => item.isAtUser == true);
     },
   },

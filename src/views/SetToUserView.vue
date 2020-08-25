@@ -8,7 +8,7 @@
           style="background-color:#a7eb5b"
         >
           <div class="d-flex justify-content-between">
-            <h4 class>Set To User</h4>
+            <h4 class="text-dark">Set To User</h4>
             <router-link to="/" class>return to home</router-link>
           </div>
           <div class="form-group">
@@ -125,7 +125,6 @@ export default {
   computed: {
     ...mapGetters(["getBookList"]),
     getAvailableBooksForUser() {
-      console.log(this.getBookList);
       return this.getBookList.filter((item) => item.isAtUser == false);
     },
   },
