@@ -2,7 +2,7 @@
   <div class="container">
     <div class="card p-3" style="background-color:#a7eb5b">
       <div class="d-flex justify-content-between">
-        <h4 class>Set To User</h4>
+        <h4 class>Get From User</h4>
         <router-link to="/" class>return to home</router-link>
       </div>
       <div class="form-group">
