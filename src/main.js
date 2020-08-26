@@ -5,6 +5,9 @@ import store from "./store";
 import "bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Toasted from "vue-toasted";
+import JwPagination from "jw-vue-pagination";
+
+Vue.component("jw-pagination", JwPagination);
 
 Vue.use(Toasted);
 

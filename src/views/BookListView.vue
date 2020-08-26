@@ -5,7 +5,7 @@
       <router-link to="/" class="mr-3 mt-2">return to home</router-link>
     </div>
     <template>
-      <div class="row m-2 border bg-white" v-for="(item, index) in getBookList" :key="index">
+      <div class="row m-2 border bg-white" v-for="(item, index) in pageOfItems" :key="index">
         <div class="p-2">
           <img :src="item.bookImgUrl" style="width:100px; height:140px" />
         </div>
@@ -60,6 +60,13 @@
           </div>
         </div>
       </div>
+      <jw-pagination
+        :items="getBookList"
+        @changePage="onChangePage"
+        :pageSize="perPage"
+        :maxPages="showingPageNum"
+        class="d-flex justify-content-center"
+      ></jw-pagination>
     </template>
   </div>
 </template>
@@ -72,11 +79,17 @@ export default {
   data() {
     return {
       selectedBook: "",
+      pageOfItems: [],
+      perPage: 3,
+      showingPageNum: 3,
     };
   },
   computed: {
     getBookList() {
       return this.$store.getters.getBookList;
+    },
+    rows() {
+      return this.$store.getters.getBookList.length;
     },
   },
   methods: {
@@ -93,6 +106,10 @@ export default {
         duration: 2500,
         className: "bg-secondary text-white p-3",
       });
+    },
+    onChangePage(pageOfItems) {
+      // update page of items
+      this.pageOfItems = pageOfItems;
     },
   },
 };
