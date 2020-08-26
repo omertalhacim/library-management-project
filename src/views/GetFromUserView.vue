@@ -70,7 +70,14 @@ export default {
       let selectedBookIndex = this.getBookList.findIndex(
         (item) => item == this.selectedBook
       );
+      let toastBookName = this.selectedBook.bookName;
       this.getBookFromUserAction(selectedBookIndex);
+      this.$toasted.show(`${toastBookName} has been RECEIVED from user`, {
+        theme: "outline",
+        position: "top-center",
+        duration: 2500,
+        className: "bg-secondary text-white p-3",
+      });
       this.clearData();
     },
     clearData() {

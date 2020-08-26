@@ -85,7 +85,14 @@ export default {
       this.selectedBook = book;
     },
     deleteSelectedBook() {
+      let toastBookName = this.selectedBook.bookName;
       this.deleteBookFromStoreAction(this.selectedBook);
+      this.$toasted.show(`${toastBookName} has been DELETED from the store`, {
+        theme: "outline",
+        position: "top-center",
+        duration: 2500,
+        className: "bg-secondary text-white p-3",
+      });
     },
   },
 };

@@ -80,7 +80,14 @@ export default {
   },
   methods: {
     submitOperation() {
+      let toastBookName = this.formModel.bookName;
       this.$store.dispatch("addBookAction", this.formModel);
+      this.$toasted.show(`${toastBookName} has been ADDED to the store`, {
+        theme: "outline",
+        position: "top-center",
+        duration: 2500,
+        className: "bg-secondary text-white p-3",
+      });
       this.clearForm();
     },
     clearForm() {

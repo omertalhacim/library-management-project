@@ -111,7 +111,14 @@ export default {
           ...this.formModel.userInfo,
         },
       };
+      let toastBookName = this.selectedBook.bookName;
       this.setBookToUserAction(payload);
+      this.$toasted.show(`${toastBookName} has been SET to user`, {
+        theme: "outline",
+        position: "top-center",
+        duration: 2500,
+        className: "bg-secondary text-white p-3",
+      });
       this.clearForm();
     },
     clearForm() {
