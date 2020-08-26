@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Navbar />
+    <Navbar :homeText="'Home'" :navbarHeader="projectHeader" />
     <br />
     <router-view />
     <footer class="text-center fixed-bottom bg-info">
@@ -16,6 +16,11 @@ export default {
   name: "App",
   components: {
     Navbar,
+  },
+  data() {
+    return {
+      projectHeader: "Library Management System",
+    };
   },
 };
 </script>

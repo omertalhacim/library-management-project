@@ -7,7 +7,7 @@
     <template>
       <div class="row m-2 border bg-white" v-for="(item, index) in pageOfItems" :key="index">
         <div class="p-2">
-          <img :src="item.bookImgUrl" style="width:100px; height:140px" />
+          <img class="border" :src="item.bookImgUrl" style="width:100px; height:140px" />
         </div>
         <div class="p-2 flex-grow-1">
           <h2>{{item.bookName}}</h2>

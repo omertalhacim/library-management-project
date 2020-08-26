@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <h3 class="mt-2 text-center">{{title}}</h3>
+    <h3 class="mt-2 text-center">{{menuHeader}}</h3>
     <div class="row">
       <button class="btn btn-success col-12 mt-2" @click="buttonOneOp">{{buttonOneText}}</button>
       <br />
@@ -19,10 +19,13 @@ export default {
       type: Boolean,
       required: true,
     },
+    menuHeader: {
+      type: String,
+      required: true,
+    },
   },
   data() {
     return {
-      title: "",
       buttonOneText: "",
       buttonTwoText: "",
     };
@@ -44,7 +47,6 @@ export default {
     },
   },
   created() {
-    this.title = this.isStoreOp ? "Book Store Operations" : "User Operations";
     this.buttonOneText = this.isStoreOp ? "Add New Book" : "Set to User";
     this.buttonTwoText = this.isStoreOp ? "Book List" : "Get from User";
   },
