@@ -37,7 +37,6 @@ export default new Vuex.Store({
     },
     deleteBookFromStore(state, payload) {
       let indexOfBook = state.bookList.findIndex((item) => item == payload);
-      console.log(indexOfBook);
       state.bookList.splice(indexOfBook, 1);
     },
   },

@@ -21,11 +21,43 @@
           <br />
           <button
             v-if="!item.isAtUser"
-            @click="deleteSelectedBook(item)"
+            data-toggle="modal"
+            data-target="#exampleModalCenter"
             class="btn bg-white text-danger mt-3"
+            @click="setSelectedBook(item)"
           >
             <b>Delete</b>
           </button>
+          <div
+            class="modal fade"
+            id="exampleModalCenter"
+            tabindex="-1"
+            role="dialog"
+            aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Delete the book from store</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div
+                  class="modal-body"
+                >Are you sure you want to delete "{{selectedBook.bookName}}"" from store?</div>
+                <div class="modal-footer">
+                  <button class="btn btn-secondary" data-dismiss="modal">No, Return</button>
+                  <button
+                    @click="deleteSelectedBook()"
+                    class="btn btn-danger"
+                    data-dismiss="modal"
+                  >Yes, Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </template>
@@ -37,6 +69,11 @@ import { mapActions } from "vuex";
 
 export default {
   name: "BookListView",
+  data() {
+    return {
+      selectedBook: "",
+    };
+  },
   computed: {
     getBookList() {
       return this.$store.getters.getBookList;
@@ -44,8 +81,11 @@ export default {
   },
   methods: {
     ...mapActions(["deleteBookFromStoreAction"]),
-    deleteSelectedBook(book) {
-      this.deleteBookFromStoreAction(book);
+    setSelectedBook(book) {
+      this.selectedBook = book;
+    },
+    deleteSelectedBook() {
+      this.deleteBookFromStoreAction(this.selectedBook);
     },
   },
 };
